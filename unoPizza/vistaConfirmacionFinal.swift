@@ -24,6 +24,7 @@ class vistaConfirmacionFinal: UIViewController {
     @IBOutlet weak var labelConfirmacionIngredienteCinco: UILabel!
     
     
+    @IBOutlet weak var confirmacionOrde: UILabel!
     
     var labelTamaño = String()
     var labelMasa = String()
@@ -49,4 +50,34 @@ class vistaConfirmacionFinal: UIViewController {
         labelConfirmacionIngredienteCinco.text = labelIngredienteCinco
         
     }
+    
+    
+    @IBAction func actionConfimacionOrden(sender: AnyObject) {
+        
+        if labelConfirmacionTamaño.text == "..."{
+            print("Orden incompleta, falta seleccionar El tamaño")
+            confirmacionOrde.text = "FALTA SELECCIONAR TAMAÑO"
+            }
+            else if labelConfirmacionMasa.text == "..."{
+                print("Orden incompleta, falta seleccionar La Masa")
+                confirmacionOrde.text = "FALTA SELECCIONAR MASA"
+            }
+            else if labelConfirmacionQueso.text == "..."{
+                print("Orden incompleta, falta seleccionar El Queso")
+                confirmacionOrde.text = "FALTA SELECCIONAR QUESO"
+            }
+            else if labelConfirmacionIngredienteUno.text == "..." || labelConfirmacionIngredienteDos.text == "..." || labelConfirmacionIngredienteTres.text == "..." || labelConfirmacionIngredienteCuatro.text == "..." || labelConfirmacionIngredienteCinco.text == "..."{
+                print("Orden incompleta, falta seleccionar el Ingrediente")
+                confirmacionOrde.text = "FALTA SELECCIONAR INGREDIENTE"
+        }
+            else{
+            print("orden Completa")
+            confirmacionOrde.text = ""
+            self.performSegueWithIdentifier("segueConfirmacion", sender: nil)
+            
+        }
+        
+    }
+    
+    
 }
